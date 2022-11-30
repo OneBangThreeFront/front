@@ -7,7 +7,10 @@ window.onload=function(){
   email = localStorage.getItem('email');
 
   // 화면 정보 받아들이고 만들기
+  // 프로젝트들
   load_project_data();
+  // 프로젝트 초대받은것
+  load_invitations();
 }
 // 프로젝트 데이터 가져오기
 function load_project_data(){
@@ -34,12 +37,11 @@ function load_project_data(){
   xhr.onload = function(){
     if(data==undefined){
     // 프로젝트가 없습니다
-    const element111 = document.getElementById('projects');
+    const element1 = document.getElementById('projects');
     const noprojectdiv = document.createElement('div')
     noprojectdiv.classList.add('newdiv');
-    const noprojectdivs = document.createTextNode("프로젝트가 없습니다!");
-    noprojectdiv.append(noprojectdivs);
-    element111.append(noprojectdiv);
+    noprojectdiv.append(document.createTextNode("프로젝트가 없습니다!"));
+    element1.append(noprojectdiv);
     } else {
       for(let i=0; i<data.length; i++){
       // json 형식으로 가져온걸로 프로젝트 화면만들기~~
@@ -51,26 +53,25 @@ function load_project_data(){
 
 // 프로젝트들 있는 화면 만들기 div 만들어서 표현
 function makediv(projectid,title,description){
+  //추가할 위치 설정
   const element = document.getElementById('projects');
-  
+  // div들 만들기
   const newdiv = document.createElement('div');
+  const newtextwrapdiv = document.createElement('div');
   const newdeletediv = document.createElement('div');
 
   // newdiv에 스타일 설정
   newdiv.classList.add('newdiv');
   // newdiv에 객체 id 설정
   newdiv.id = projectid;
-
   //삭제하는 div에 스타일추가
   newdeletediv.classList.add('deletediv');
-  //const delete_wrap=document.createElement('div');
-  //delete_wrap.classList.add('newdeletediv');
-  
+  //삭제하는 div에 내용추가
   const deletediv_text = document.createTextNode("Delete");
   newdeletediv.append(deletediv_text);
 
   // 프로젝트 누를시 이동하는함수
-  newdiv.onclick = function(){ 
+  newtextwrapdiv.onclick = function(){ 
     //클릭될시 projectid를 로컬 스토리지에project id로 저장
      localStorage.setItem('projectid',projectid);
     // 페이지 이동
@@ -88,14 +89,12 @@ function makediv(projectid,title,description){
 
   const newdescription_div = document.createElement('div');
   newdescription_div.classList.add('describe')
+  //받아온 내용을 div에 추가
+  newtitle_div.append(document.createTextNode(title));
+  newdescription_div.append(document.createTextNode(description));
 
-  const newtitle = document.createTextNode(title);
-  const newdescription = document.createTextNode(description);
-
-  newtitle_div.append(newtitle);
-  newdescription_div.append(newdescription);
-
-  newdiv.append(newtitle_div,newdescription_div,newdeletediv);
+  newtextwrapdiv.append(newtitle_div,newdescription_div);
+  newdiv.append(newtextwrapdiv,newdeletediv);
 
   element.append(newdiv);
 }
@@ -109,6 +108,87 @@ function projectdelete(projectid){
     if (xhr.readyState === xhr.DONE) {
       if (xhr.status === 200) {
         //성공시 페이지 refresh
+        location.href='./Home.html';
+        }
+        else {
+        // 오류시 localStorage를 초기화하고 로그인화면으로
+        localStorage.clear();
+        location.href='./Login.html';
+      }
+    }
+  }
+  xhr.send();
+}
+
+
+
+
+// 아래부터는 초대관련
+function load_invitations(){
+  var invitationsData
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", $address+'/invitations?email='+email, true); 
+  xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === xhr.DONE) {
+      if (xhr.status === 200) {
+        //JSON으로 변환하여 저장
+        invitationsData = JSON.parse(xhr.responseText);
+        }
+        else {
+        // 오류시 localStorage를 초기화하고 로그인화면으로
+        localStorage.clear();
+        location.href='./Login.html';
+      }
+    }
+  }
+  xhr.send();
+  xhr.onload = function(){
+    if(invitationsData==undefined){
+    } else {
+      for(let i=0; i<invitationsData.length; i++){
+        // json 형식으로 가져온걸로 화면만들기~~
+        makeinvitations(invitationsData[i].invitationId, invitationsData[i].projectName)
+      }
+    }
+  }
+}
+
+// 초대받기화면만들기
+function makeinvitations(invitationId,projectName){
+  const element2 = document.getElementById('projects');
+  const newdiv = document.createElement('div');
+  const newacceptdiv = document.createElement('div');
+  const newdenydiv = document.createElement('div');
+
+  newdenydiv.append(document.createTextNode('deny'));
+  newacceptdiv.append(document.createTextNode('accept'));
+
+  newacceptdiv.onclick = function (){
+    acceptproject(invitationId);
+  }
+  newdenydiv.onclick = function(){
+
+  }
+
+  newdiv.classList.add('invitationdiv');
+  newacceptdiv.classList.add('acceptdiv');
+  newdenydiv.classList.add('denydiv');
+
+  newdiv.append(document.createTextNode('Invited Project: '+projectName));
+  element2.append(newdiv,newacceptdiv,newdenydiv);
+}
+
+function acceptproject(invitationId){
+  var xhr = new XMLHttpRequest();
+  console.log(invitationId);
+  xhr.open("POST", $address+'/invitation/accept/'+invitationId, true); 
+  xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === xhr.DONE) {
+      if (xhr.status === 200) {
+        alert("invitation accpet!");
+        //페이지 refresh
         location.href='./Home.html';
         }
         else {
