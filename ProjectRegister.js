@@ -1,3 +1,4 @@
+
 //항상필요한 그주소
 const $address = 'http://ec2-43-201-47-225.ap-northeast-2.compute.amazonaws.com'
 
@@ -10,7 +11,6 @@ accessToken = localStorage.getItem('accessToken');
 // 프로젝트 등록시키기
 function RegisterProject(){
   var data = getData();
-  console.log(getData());
   var xhr = new XMLHttpRequest();
   xhr.open("POST", $address+"/project", true); // 프로젝트 보내기 open
   xhr.setRequestHeader('Content-Type', 'application/json'); //형식확인
@@ -23,8 +23,8 @@ function RegisterProject(){
         history.back();
       }else{
         alert('fail!');
-       // localStorage.clear();
-        //location.href='/LogIn.html';
+        localStorage.clear();
+        location.href='/LogIn.html';
       }
     }
   }
@@ -37,6 +37,7 @@ function getData(){
   // 개수구하기
   var size = document.getElementsByName("test").length;
   // 변수선언
+  console.log(size);
   var  invitationEmail = [size];
   // 배열에 데이터입력
   for(let i=0; i<(size); i++){
@@ -48,5 +49,6 @@ function getData(){
     invitationEmail: invitationEmail,
     title: title
   });
+  console.log(data);
   return(data);
 }

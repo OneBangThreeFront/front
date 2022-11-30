@@ -9,6 +9,21 @@ body {
 	font-family: 'Roboto', Helvetica, sans-serif;
 }
 
+h1 {
+	display: flex;
+	font-family: 'Nunito', sans-serif;
+	margin-top: 50px;
+	font-weight: 700;
+	justify-content: center;
+	font-size: 50px;
+}
+
+hr {
+	margin-top: 40px;
+	margin-left: 300px;
+	margin-right: 300px;
+}
+
 
 input[id="menuicon"] {display:none;}
 input[id="menuicon"] + label {display:block;margin:10px;width:60px;height:50px;position:relative;cursor:pointer;}
@@ -24,7 +39,7 @@ input[id="menuicon"]:checked + label span:nth-child(3) {bottom:50%;transform:tra
 div[class="sidebar"] {width:250px;height:100%;background:rgba(0, 0, 0, 0.1);position:fixed;top:0;left:-250px;z-index:1;transition:all .35s;}
 input[id="menuicon"]:checked + label + div {left:0;}
 .sitemap-ul {margin-top: 300px;}
-.sitemap-ul > li {font-size:30px; width:100px; margin:100px auto; margin-top: 50px; list-style:none;}
+.sitemap-ul > li {font-size:30px; width:100px; margin:100px auto; margin-top: 50px; list-style:none; font-family: 'Nunito', sans-serif; margin-left: -120px;}
 
 a {
 	text-decoration-line: none;
@@ -70,7 +85,7 @@ h1 {
 	justify-content: center;
 	flex: 1;
 	width: 100%;
-	margin-top: 200px;
+	margin-top: 50px;
 }
 
 .lists .list {
@@ -117,4 +132,19 @@ h1 {
 .lists .End .list .list-item {
 	background-color: #6593ee;
 	color: #ffffff;
+}
+
+.add {
+	margin: auto;
+	margin-left: 300px;
+}
+
+.add button {
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+	padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 0px;
 }
