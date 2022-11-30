@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>프로젝트 등록</title>
+    <link href="projectregister.css" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <br><br><br><br><br>
+        <form class="prj_form">
+            <div class="logo_wrapper">
+                <div class="prj_logo">프로젝트 등록</div> <br><br>
+            </div>
+
+            <hr width="70%">
+
+            <div class="title_wrapper">
+                <label for="title" class="title">주제&nbsp;&nbsp;&nbsp;</label> 
+                <input type="text" class="title_box" id="title">
+            </div> 
+ 
+            <div class="description_wrapper">
+                <label for="description" class="description">메모&nbsp;&nbsp;&nbsp;</label> 
+                <textarea input type="text" class="description_box" id="description"></textarea><br><br>
+            </div><br><br>
+            <div class="text_wrapper">
+                <div class="invggite_logo">팀원 초대</div>
+            </div>
+
+            <div class="btn_wrapper">
+              <input type="button" class="btnAdd" value="+">
+            </div>
+            
+            <div class="member_wrapper">
+                <form class="userlist" action="" method='POST'>
+                    <div class='addInput'></div>
+                </form> 
+            </div>
+            
+            <div class="button_wrapper">
+                <input type="button" class="cancel_btn" value="취소" onclick="history.back()"> 
+                <input type="button" class="register_btn" value="등록" onclick=RegisterProject()> 
+            </div>        
+        </form>
+     </div>
+
+    <script type="text/javascript">
+        $(document).ready (function () {                
+            $('.btnAdd').click (function () {                                        
+                $('.addInput').append (
+                    '<input type="type" class="box" name="test" value="" class="invitationEmail">\
+                     <button type="button" class="btnRemove">-</button><br>'                    
+                );    // input taf 추가                     
+                $('.btnRemove').on('click', function () { // 여기서 this는 '.btnRemove'
+                    $(this).prev().remove();        // .prev()로 input tag를 가리키고 remove()한다.
+                    $(this).next().remove();        // <br> 삭제
+                    $(this).remove();               // 버튼삭제
+                });
+            });                                      
+        });
+    </script>
+<script src="./ProjectRegister.js" ></script>     
+</body>
+</html> 
