@@ -43,3 +43,41 @@ for (let i = 0; i < list_items.length; i++) {
 		});
 	}
 }
+
+
+
+const $address = 'http://ec2-43-201-47-225.ap-northeast-2.compute.amazonaws.com'
+
+
+
+window.onload=function(){
+	accessToken = localStorage.getItem('accessToken');
+	projectId = localStorage.getItem('projectid');
+
+	GetTaskData("TODO");
+	GetTaskData("IN_PROGRESS");
+	GetTaskData("RESOLVED");
+	
+}
+
+
+function GetTaskData(Status){
+	var xhr = new XMLHttpRequest();
+  xhr.open("GET", $address+'/task/'+projectId+'?status='+Status, true);
+	xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === xhr.DONE) {
+          if (xhr.status === 200) {
+            }
+            else {
+                alert("ㄴㄴ 안됨")
+            }
+        }
+    }
+  xhr.send();
+	xhr.onload = function(){
+		todoData = JSON.parse(xhr.responseText);
+		console.log(Status+":"+todoData);
+	}
+}
