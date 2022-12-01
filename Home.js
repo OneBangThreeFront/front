@@ -7,10 +7,11 @@ window.onload=function(){
   email = localStorage.getItem('email');
 
   // 화면 정보 받아들이고 만들기
+  // 순서는 1 프로젝트 초대받은것 2 프로젝트들 데이터
+  // 프로젝트 초대받은것 보여주기
+  load_invitations();
   // 프로젝트들
   load_project_data();
-  // 프로젝트 초대받은것
-  load_invitations();
 }
 // 프로젝트 데이터 가져오기
 function load_project_data(){
