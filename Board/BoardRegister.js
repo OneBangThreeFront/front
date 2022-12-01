@@ -69,3 +69,44 @@ function ex_3() {
     low.checked = false;
   }
 }
+
+function taskregister(){
+  //그주소
+  const $address = 'http://ec2-43-201-47-225.ap-northeast-2.compute.amazonaws.com'
+	//엑세스토큰,프로젝트아이디 가져오기
+  accessToken = localStorage.getItem('accessToken');
+	projectId = localStorage.getItem('projectid');
+
+  //Task 정보가져오기 이부분 추가가필요함.
+  const description="설명";
+  const name ="이름";
+  const priorityStatus ="HIGH";
+  const score = "3";
+
+  //데이터정리
+  data=JSON.stringify({
+    description: description,
+    name: name,
+    priorityStatus: priorityStatus,
+    score: score
+  });
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", $address+'/board/'+projectId, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === xhr.DONE) {
+          if (xhr.status === 200) { 
+             alert("board regist succes")
+          }
+          else {
+              alert("fail!")
+          }
+      }
+  }
+  xhr.send(data);
+}
+
+
+
