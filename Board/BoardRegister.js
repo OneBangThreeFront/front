@@ -77,12 +77,13 @@ function taskregister(){
   accessToken = localStorage.getItem('accessToken');
 	projectId = localStorage.getItem('projectid');
 
-  //Task 정보가져오기 이부분 추가가필요함.
+  //board 정보가져오기
   const description="설명";
-  const name ="이름";
-  const priorityStatus ="HIGH";
-  const score = "3";
+  const name = document.querySelector('#taskname').value;
+  const priorityStatus = GetPriorityStatus();
+  const score = GetScore();
 
+  console.log(description,name,priorityStatus,score);
   //데이터정리
   data=JSON.stringify({
     description: description,
@@ -101,7 +102,9 @@ function taskregister(){
              alert("board regist succes")
           }
           else {
-              alert("fail!")
+          // 오류시 localStorage를 초기화하고 로그인화면으로
+          localStorage.clear();
+          location.href='./Login.html';
           }
       }
   }
@@ -109,4 +112,30 @@ function taskregister(){
 }
 
 
+function GetScore(){
+  if (document.getElementById('cb1').checked) {
+    return "1";
+  }else if(document.getElementById('cb2').checked){
+    return "2";
+  }else if(document.getElementById('cb3').checked){
+    return "3";
+  }else if(document.getElementById('cb4').checked){
+    return "4";
+  }else if(document.getElementById('cb5').checked){
+    return "5";
+  }else{
+    alert("Select Scroe");
+  }
+}
 
+function GetPriorityStatus(){
+  if(document.getElementById('low').checked){
+    return "LOW";
+  }else if(document.getElementById('middle').checked){
+    return "MIDDLE";
+  }else if(document.getElementById('high').checked){
+    return "HIGH";
+  }else{
+    alert("Select PriorityStatus");
+  }
+}
