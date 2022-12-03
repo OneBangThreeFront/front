@@ -70,7 +70,7 @@ function ex_3() {
   }
 }
 
-function taskregister(){
+function boardregister(){
   //그주소
   const $address = 'http://ec2-43-201-47-225.ap-northeast-2.compute.amazonaws.com'
 	//엑세스토큰,프로젝트아이디 가져오기
@@ -103,8 +103,9 @@ function taskregister(){
           }
           else {
           // 오류시 localStorage를 초기화하고 로그인화면으로
-          localStorage.clear();
-          location.href='./Login.html';
+            alert("fail!");
+          //localStorage.clear();
+          //location.href='./Login.html';
           }
       }
   }
@@ -131,8 +132,8 @@ function GetScore(){
 function GetPriorityStatus(){
   if(document.getElementById('low').checked){
     return "LOW";
-  }else if(document.getElementById('middle').checked){
-    return "MIDDLE";
+  }else if(document.getElementById('medium').checked){
+    return "MEDIUM";
   }else if(document.getElementById('high').checked){
     return "HIGH";
   }else{
