@@ -124,23 +124,17 @@ function makediv(issueid,issuecontent,username) {
   // new div 생성
   const newDiv = document.createElement('div');
   // new div class 부여
+  newDiv.id = issueid;
   newDiv.classList.add('newDiv');
   // new span 생성
-  const newissueidSpan = document.createElement('span');
   const newusernameSpan = document.createElement('span');
   const newissuecontentSpan = document.createElement('span');
   // span에 내용넣기
-  newissueidSpan.appendChild(document.createTextNode(issueid));
   newusernameSpan.appendChild(document.createTextNode(username));
   newissuecontentSpan.appendChild(document.createTextNode(issuecontent));
   // Span들에게 각각의 class 부여하기
-  newissueidSpan.classList.add('issueidSpan')
   newusernameSpan.classList.add('usernameSpan')
   newissuecontentSpan.classList.add('issuecontentSpan')
-  // text node를 new div에 추가
-  newDiv.appendChild(newissueidSpan);
-  newDiv.appendChild(newusernameSpan);
-  newDiv.appendChild(newissuecontentSpan);
 
   // 삭제하는 span추가
   const newdeleteissueSpan = document.createElement('span');
@@ -150,7 +144,167 @@ function makediv(issueid,issuecontent,username) {
     const deleteid=issueid;
     issue_delete(deleteid);
   }
+
+
+  // 답글보는 span 추가
+  const openIssueChatSpan = document.createElement('span');
+  openIssueChatSpan.innerText = "open chat"
+  openIssueChatSpan.classList.add('openissuechat');
+
+  openIssueChatSpan.addEventListener("click",(event)=>{
+    const IssueId=issueid;
+    console.log(IssueId);
+    GetIssueChat(IssueId);
+    makechatboard(IssueId);
+    transferOpenIssueChatSpan(IssueId);
+  });
+  // 답글 닫는 span 추가
+  const closeIssueChatSpan = document.createElement('span');
+  closeIssueChatSpan.innerText = "close chat";
+  closeIssueChatSpan.classList.add('closeissuechat');
+  // 기본은 숨겨두는상태
+  closeIssueChatSpan.style.display = 'none';
+
+  closeIssueChatSpan.addEventListener("click",(event)=>{
+    const IssueId=issueid;
+    transferCloseIssueChatSpan(IssueId);
+    removeDiv(IssueId);
+  });
+  // 답글과 입력창 표시해줄 div
+  const issueEnterDiv = document.createElement('div');
+  issueEnterDiv.className = 'issueEnterDiv'
+
+  // 위에서부터 들어감, 순서가 중요함
+  newDiv.appendChild(openIssueChatSpan,);
+  newDiv.appendChild(closeIssueChatSpan);
+  newDiv.appendChild(newusernameSpan);
+  newDiv.appendChild(newissuecontentSpan);
   newDiv.appendChild(newdeleteissueSpan);
+  newDiv.appendChild(issueEnterDiv);
+
   // new div를 기존 div에 추가
   element.appendChild(newDiv);
+}
+
+
+// 이슈의 채팅 가져오기
+function GetIssueChat(IssueId){
+	var xhr = new XMLHttpRequest();
+  xhr.open("GET", $address+'/chat/'+IssueId, true);
+	xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === xhr.DONE) {
+          if (xhr.status === 200) {
+            }
+            else {
+				      // 오류시 localStorage를 초기화하고 로그인화면으로
+							localStorage.clear();
+							location.href='./Login.html';
+            }
+        }
+    }
+  xhr.send();
+	xhr.onload = function(){
+		data = JSON.parse(xhr.responseText);
+    for(let i=0; i<data.length; i++){
+
+      // json 형식으로 가져온걸로 프로젝트 화면만들기~~
+        makechat(IssueId,data[i].id,data[i].content)
+    }
+	}
+}
+
+function makechat(IssueId,chatid,content){
+  const element = document.getElementById(IssueId).querySelector('.issueEnterDiv');
+
+  const newchatdiv = document.createElement('div');
+  newchatdiv.className = "chatdiv"
+  
+  newchatdiv.append(document.createTextNode(content));
+  //요소의 맨앞에 위치함
+  element.prepend(newchatdiv);
+}
+
+function makechatboard(IssueId){
+  const element = document.getElementById(IssueId).querySelector('.issueEnterDiv');
+  console.log(element);
+
+  const newdiv = document.createElement('div');
+
+  const input = document.createElement('input');
+
+  input.setAttribute('id', "chattext");
+  input.setAttribute('name', "text");
+  input.setAttribute('placeholder', "send massage press Enter");
+  input.setAttribute('onkeyup', "enterkey2()");
+  input.setAttribute('class','openchat')
+  newdiv.append(input);
+  element.append(newdiv);
+}
+
+function enterkey2(){
+  if (window.event.keyCode == 13) { //엔터키가 눌렸을때
+    // 요소의 부모의 부모의 부모의... 의! id 찾아내기, IssueId
+    var IssueId = document.getElementById("chattext").parentElement.parentElement.parentElement.getAttribute('id');
+    var textdata = document.getElementById("chattext").value
+    if(textdata === undefined){
+      alert('입력하세요 ㅡㅡ');
+    }else{
+      data = JSON.stringify({
+        content: textdata,
+      });
+      chat_create(data,IssueId);
+    }
+    //보냈을때 chattext의 value 초기화
+    document.getElementById("chattext").value = "";
+  }
+}
+
+function transferOpenIssueChatSpan(IssueId){
+  // get Elementsbyclassnames는 배열로 작동해서 안됨 쿼리셀렉터로 지정해주어야함
+  const openissuechat = document.getElementById(IssueId).querySelector('.openissuechat');
+  openissuechat.style.display = 'none';
+
+  const closeissuechat = document.getElementById(IssueId).querySelector('.closeissuechat');
+  closeissuechat.style.display = '';
+}
+
+function transferCloseIssueChatSpan(IssueId){
+  // get Elementsbyclassnames는 배열로 작동해서 안됨 쿼리셀렉터로 지정해주어야함
+  const openissuechat = document.getElementById(IssueId).querySelector('.openissuechat');
+  openissuechat.style.display = '';
+
+  const closeissuechat = document.getElementById(IssueId).querySelector('.closeissuechat');
+  closeissuechat.style.display = 'none';
+}
+
+function removeDiv(IssueId){
+  let element = document.getElementById(IssueId).querySelector('.issueEnterDiv');
+  element.remove(element);
+  // 삭제후 다시생성
+  element = document.getElementById(IssueId)
+  const issueEnterDiv = document.createElement('div');
+  issueEnterDiv.className = 'issueEnterDiv'
+  element.appendChild(issueEnterDiv);
+}
+
+function chat_create(data,IssueId){
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", $address+'/chat/'+IssueId, true);
+	xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === xhr.DONE) {
+          if (xhr.status === 200) {
+              alert("메시지 보내짐!");
+            }
+            else {
+				      // 오류시 localStorage를 초기화하고 로그인화면으로
+              alert("fail");
+							//localStorage.clear();
+							//location.href='./Login.html';
+            }
+        }
+    }
+  xhr.send(data);
 }
