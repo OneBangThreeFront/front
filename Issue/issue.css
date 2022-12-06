@@ -1,51 +1,93 @@
 /* 메인 */
-body{ margin: 0; }
-
-/* 헤더부분 */
-
-header{
-  height: 10vh;
-  font-size: 50px;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-/* 사이드바 */
-nav{
-  height: 90vh;
-  width: 10vw;
-  padding-top: 10vh;
-  float: left;
-  border-right: 1px solid gray;
-  box-sizing: border-box;
+body {
+	background-color: #ffffff;
+	font-family: 'Roboto', Helvetica, sans-serif;
 }
-.sidebar{
-  width: 100%;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
+
+h1 {
+	display: flex;
+	font-family: 'Nunito', sans-serif;
+	margin-top: 50px;
+	font-weight: 700;
+	justify-content: center;
+	font-size: 50px;
 }
-.link{text-decoration: none;}
-.link:hober{}
+
+hr {
+	margin-top: 40px;
+	margin-left: 300px;
+	margin-right: 300px;
+}
+
+
+input[id="menuicon"] {display:none;}
+input[id="menuicon"] + label {display:block;margin:10px;width:60px;height:50px;position:relative;cursor:pointer;}
+input[id="menuicon"] + label span {display:block;position:absolute;width:100%;height:5px;border-radius:30px;background:#000;transition:all .35s;}
+input[id="menuicon"] + label span:nth-child(1) {top:0;}
+input[id="menuicon"] + label span:nth-child(2) {top:50%;transform:translateY(-50%);} /* ����ϰ� ����� �� �ִ� style top:calc(50% - 2.5px); margin-top:-2.5px;*/
+input[id="menuicon"] + label span:nth-child(3) {bottom:0;}
+input[id="menuicon"]:checked + label {z-index:2;}
+input[id="menuicon"]:checked + label span {background:rgb(0, 0, 0);}
+input[id="menuicon"]:checked + label span:nth-child(1) {top:50%;transform:translateY(-50%) rotate(45deg);}
+input[id="menuicon"]:checked + label span:nth-child(2) {opacity:0;}
+input[id="menuicon"]:checked + label span:nth-child(3) {bottom:50%;transform:translateY(50%) rotate(-45deg);}
+div[class="sidebar"] {width:250px;height:100%;background:rgba(0, 0, 0, 0.1);position:fixed;top:0;left:-250px;z-index:1;transition:all .35s;}
+input[id="menuicon"]:checked + label + div {left:0;}
+.sitemap-ul {margin-top: 300px;}
+.sitemap-ul > li {font-size:30px; width:100px; margin:100px auto; margin-top: 50px; list-style:none; font-family: 'Nunito', sans-serif; margin-left: -120px;}
+
+a {
+	text-decoration-line: none;
+	color: rgb(0, 0, 0);
+	font-weight: 400;
+    font-size: 30px;
+    padding-right: 200px;
+    padding-left: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    background: transparent;
+    box-shadow: inset 0px 0px 0px #999;
+    display: block;
+    -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+    transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+}
+
+a:hover, a:active {
+    box-shadow: inset 300px 0px 0px #999;
+}
+
+.app {
+	display: flex;
+	flex-flow: column;
+
+	width: 100vw;
+	height: 100vh;
+}
+
+
+h1 {
+    display: flex;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 50px;
+    font-weight: 700;
+    justify-content: center;
+    font-size: 50px;
+}
+
 
 /* 메인화면부분 */
-section{
-  height:90vh;
-  width: 80vw;
-  float: left;
-  text-align: center;
-  
-}
-.div-top{
-  height:10vh;
-  font-size: 50px;
-  border-bottom: 1px solid gray;
-  box-sizing: border-box;
-}
-
 .div-bottom{
+  padding-left: 20vw;
   display: flex;
   height:20vh;
   width:80vw;
-  display: flex;
   justify-content: center;
   text-align: center;
 }
@@ -63,7 +105,12 @@ section{
 
 
 /* 이슈가 추가되는 div */
-#div-middle{height:60vh; overflow-y: scroll;}
+#div-middle{
+  padding-left: 20vw;
+  height: 100vh;
+  overflow-y: scroll;
+  justify-content: center;
+}
 
 .newDiv{
   text-align: left;

@@ -12,24 +12,31 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body> 
-  <!-- 헤더영역 -->
-  <header>DevDesk</header>
-  <!-- 사이드바 영역 -->
-  <nav>
-    <!-- 마우스 오버시 사이즈커지고 누르면 화면이동 a함수말고 js로 만들d어보고싶음 -->
-    <div class="sidebar"><a class="link" href="">board</a></div>
-    <div class="sidebar"><a class="link" href="">task</a></div>
-    <div class="sidebar"><a class="link" href="">issue</a></div>
-  </nav>
-  <!-- 본론, 섹션영역 -->
-  <section>
-    <div class="div-top">
-      Issue
+  <div class="app">
+     <!-- 헤더영역 및 사이드바 내용 -->
+		<header>
+			<div class="category">
+				<input type="checkbox" id="menuicon">
+				<label for="menuicon">
+					<span></span>
+					<span></span>
+					<span></span>
+				</label>
+        <!-- 사이드바 내용 -->
+				<div class="sidebar">
+					<ul class="sitemap-ul">
+						<li><a href="/Board/Title.html">Board</a></li>
+						<li><a href="/Task/DnD.html">Task</a></li>
+						<li><a href="/Issue/issue.html">Issue</a></li>
+					</ul>
+				</div>
+			<h1>Issue</h1>
+			<hr>
     </div>
-    <!-- 데이터베이스에서 입력받음 -->
+		</header>
+     <!-- 데이터베이스에서 입력받음 -->
     <div id="div-middle">
       <!-- 데이터를 송출하는칸 -->
-    </div>
     </div>
     <!-- 텍스트 입력하는칸 -->
     <!-- 데이터베이스에 입력 -->
@@ -40,6 +47,5 @@
              placeholder="send massage press Enter"
              onkeyup="enterkey()">
     </div>
-  </section>
 </body>
 </html>
