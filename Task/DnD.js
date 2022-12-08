@@ -5,7 +5,8 @@ const $address = 'http://ec2-43-201-47-225.ap-northeast-2.compute.amazonaws.com'
 window.onload=function(){
 	accessToken = localStorage.getItem('accessToken');
 	projectId = localStorage.getItem('projectid');
-
+	ProjectDay(projectId)
+	GetUserData(projectId)
 	GetTaskData("TODO");
 	GetTaskData("IN_PROGRESS");
 	GetTaskData("RESOLVED");
@@ -98,6 +99,55 @@ function TaskStatusChange(taskid,Status){
   xhr.send();
 }
 
+function GetUserData(projectId){
+	var xhr = new XMLHttpRequest();
+  xhr.open("GET", $address+'/users/'+projectId, true);
+	xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === xhr.DONE) {
+          if (xhr.status === 200) {
+            }
+            else {
+				      // 오류시 localStorage를 초기화하고 로그인화면으로
+							localStorage.clear();
+							location.href='/LogIn.html';
+            }
+        }
+    }
+  xhr.send();
+	xhr.onload = function(){
+		console.log(xhr.responseText);
+	}
+}
+
+function ProjectDay(projectId){
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", $address+'/project/score/'+projectId, true);
+	xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === xhr.DONE) {
+          if (xhr.status === 200) {
+             
+            }
+            else {
+				      // 오류시 localStorage를 초기화하고 로그인화면으로
+							localStorage.clear();
+							location.href='./Login.html';
+            }
+        }
+    }
+  xhr.send();
+	xhr.onload = function(){
+		console.log(xhr.responseText);
+		ShowProjectDay(JSON.parse(xhr.responseText));
+	}
+}
+
+function ShowProjectDay(day){
+	console.log(document.querySelector('.D-day'));
+	document.querySelector('.D-day').append("예상 프로젝트 종료날짜"+day.year+"년"+day.month+"월"+day.day+"일");
+}
 // poromise 함수를 못써서 dnd함수 새로짯습니다 ㅠㅠ
 
 // function dragStart(){
