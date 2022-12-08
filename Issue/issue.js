@@ -206,7 +206,8 @@ function GetIssueChat(IssueId){
   xhr.send();
 	xhr.onload = function(){
 		data = JSON.parse(xhr.responseText);
-    for(let i=0; i<data.length; i++){
+    console.log(data);
+    for(let i=data.length-1; i>-1; i--){
 
       // json 형식으로 가져온걸로 프로젝트 화면만들기~~
         makechat(IssueId,data[i].id,data[i].content)

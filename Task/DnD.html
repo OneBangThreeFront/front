@@ -37,21 +37,18 @@
 		<div class="lists">
 			<section class="ToDo">
 				<h2>해야할 일</h2>
-					<div class="list" id="TODO">
-						<div class="list-item" draggable="true">로그인 구현하기</div>
-						<div class="list-item" draggable="true">버튼 추가</div>
-						<div class="list-item" draggable="true">회원 정보 수정 가능</div>
+					<div class="list" id="TODO" ondrop="drop(event)" ondragover="allowDrop(event)";>
 					</div>
 			</section>
 			
 			<section class="DoNow" id="IN">
 				<h2>하는 중</h2>
-					<div class="list" id="IN_PROGRESS"></div>
+					<div class="list" id="IN_PROGRESS" ondrop="drop(event)" ondragover="allowDrop(event)";></div>
 			</section>
 
 			<section class="End">
 				<h2>완료</h2>
-					<div class="list" id="RESOLVED"></div>
+					<div class="list" id="RESOLVED" ondrop="drop(event)" ondragover="allowDrop(event)";></div>
 			</section>
 		</div>
 	</div>
