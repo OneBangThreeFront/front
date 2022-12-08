@@ -25,7 +25,6 @@ function GetBoardData(){
   xhr.send();
 	xhr.onload = function(){
 		data = JSON.parse(xhr.responseText);
-    console.log(data);
 		for(let i=0; i<data.length; i++){~
         maketrtd(data[i].description, data[i].id, data[i].name, data[i].priorityStatus,data[i].score);
     }
