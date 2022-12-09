@@ -109,7 +109,9 @@ body{
 
 /* 초대관련 div들 */
 .inviteWrapper{
-    
+    display: flex;
+    align-items:center;
+    justify-content: center;
 }
 
 .invitationdiv{
