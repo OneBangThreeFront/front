@@ -24,7 +24,7 @@ body{
 }
 
 .title{
-    font-size: 23px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
@@ -32,12 +32,12 @@ body{
 .title_box{
     width:500px;
     height:35px;
-    margin: 10px 0 5px 0;
+    margin: 10px 0 5px 12px;
     color:rgb(89, 89, 89);
     background-color: #e7e7e7;
     border-radius: 5px;
     border-style: none;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .description_wrapper{
@@ -47,7 +47,7 @@ body{
 }
 
 .description{
-    font-size: 23px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
@@ -62,7 +62,7 @@ body{
     background-color: #e7e7e7;
     border-radius: 5px;
     border-style: none;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .text_wrapper{
@@ -85,15 +85,15 @@ body{
 
 .btn_wrapper{
     display: flex;
-    align-items:center;
+    
     justify-content: center;
 }
 
 .btnAdd{
     position: relative;
     right: 0px;
-    width:330px;
-    height:45px;
+    width:30px;
+    height:30px;
     margin: 10px 10px 0px 0px;
     color:#5a5f76;
     background-color: #efefef;
@@ -108,7 +108,7 @@ body{
     position: relative;
     left: 6%;
     width:330px;
-    height:45px;
+    height:40px;
     margin: 10px 0 5px 0;
     color:black;
     background-color: #e8f0fe;
@@ -121,14 +121,14 @@ body{
     position: relative;
     left: 7%;
     top: 3px;
-    width:40px;
-    height:40px;
+    width:35px;
+    height:35px;
     margin: 10px 10px 0px 0px;
     color:white;
     background-color: #d7d7d7;
     border-radius: 25px;
     border-style: none;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -141,7 +141,7 @@ body{
 
 .cancel_btn{
     width:100px;
-    height:45px;
+    height:35px;
     margin: 10px 10px 5px 0;
     color:white;
     background-color: #b1b1b1;
@@ -154,7 +154,7 @@ body{
 
 .register_btn{
     width:100px;
-    height:45px;
+    height:35px;
     margin: 10px 0 5px 10px;
     color:white;
     background-color: #3485ff;

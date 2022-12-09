@@ -1,6 +1,6 @@
 
 //항상필요한 그주소
-const $address = 'http://ec2-43-201-47-225.ap-northeast-2.compute.amazonaws.com'
+const $address = 'http://ec2-3-38-185-131.ap-northeast-2.compute.amazonaws.com'
 
 //엑세스토큰 받아오기
 accessToken = localStorage.getItem('accessToken');
