@@ -79,7 +79,7 @@ function drop(ev) {
 function allowDrop(ev) {
 	ev.preventDefault();
 }
-
+// task 상태 변경하기
 function TaskStatusChange(taskid,Status){
 	var xhr = new XMLHttpRequest();
   xhr.open("PUT", $address+'/task/'+taskid+'?status='+Status, true);
@@ -99,6 +99,7 @@ function TaskStatusChange(taskid,Status){
   xhr.send();
 }
 
+// 사용자들 목록 가져오기
 function GetUserData(projectId){
 	var xhr = new XMLHttpRequest();
   xhr.open("GET", $address+'/users/'+projectId, true);
@@ -121,6 +122,7 @@ function GetUserData(projectId){
 	}
 }
 
+//프로젝트 마감날짜 구하기
 function ProjectDay(projectId){
   var xhr = new XMLHttpRequest();
   xhr.open("GET", $address+'/project/score/'+projectId, true);
@@ -139,13 +141,11 @@ function ProjectDay(projectId){
     }
   xhr.send();
 	xhr.onload = function(){
-		console.log(xhr.responseText);
 		ShowProjectDay(JSON.parse(xhr.responseText));
 	}
 }
 
 function ShowProjectDay(day){
-	console.log(document.querySelector('.D-day'));
 	document.querySelector('.D-day').append("예상 프로젝트 종료날짜"+day.year+"년"+day.month+"월"+day.day+"일");
 }
 // poromise 함수를 못써서 dnd함수 새로짯습니다 ㅠㅠ
