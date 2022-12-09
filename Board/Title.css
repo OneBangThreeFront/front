@@ -203,11 +203,6 @@ input[type="radio"] + label {
     margin-left: 50px; 
     border-radius: 10px;
 } 
-input[type="radio"]:checked + label {background:#999;color:#000;}
-.conbox {height:600px;margin:0 20px;display:none;text-align:left;font-size:12px;padding:20px;box-sizing:border-box;} 
-input[id="tab01"]:checked ~ .con1 {display:block;} 
-input[id="tab02"]:checked ~ .con2 {display:block;}
-input[id="tab03"]:checked ~ .con3 {display:block;}
 
 .add {
     display: flex;
@@ -223,4 +218,8 @@ input[id="tab03"]:checked ~ .con3 {display:block;}
     text-align: center;
     cursor: pointer;
     border: 0px;
+}
+
+.add button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
 }

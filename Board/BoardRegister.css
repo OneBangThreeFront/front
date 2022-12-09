@@ -202,31 +202,18 @@ input[id="high"] + label {
     justify-content: center;
 }
 
-input[type=submit] {
-    font-size: 40px;
-    height: 80px;
-    width: 300px;
-    box-shadow:.8rem .5rem 1.4rem  #BEC5D0, -.3rem -.4rem .8rem #FBFBFB;
-    border-radius: 20px;
-    transition-duration: 0.3s;
-}
 
 input[type=checkbox]:active + label{
     box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, inset .3rem .4rem .8rem #BEC5D0;
 }
 
-input[type=submit]:active {
-    margin-left: 5px;
-    margin-top: 5px;
-    box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, inset .3rem .4rem .8rem #BEC5D0; 
-}
-    
-input[type=submit]:hover{
+
+.app input[type=checkbox]:hover + label{
     background-color: #6593ee;
     color: white;
 }
 
-input[type=checkbox]:hover + label{
-    background-color: #6593ee;
-    color: white;
+input[type=button]:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }

@@ -148,3 +148,7 @@ h1 {
     cursor: pointer;
     border: 0px;
 }
+
+.add button:hover {
+	background-color: rgba(0, 0, 0, 0.5);
+}
