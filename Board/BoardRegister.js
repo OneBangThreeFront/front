@@ -78,7 +78,7 @@ function boardregister(){
 	projectId = localStorage.getItem('projectid');
 
   //board 정보가져오기
-  const description="설명";
+  const description=document.querySelector('#descriptionname').value;
   const name = document.querySelector('#taskname').value;
   const priorityStatus = GetPriorityStatus();
   const score = GetScore();
@@ -100,6 +100,7 @@ function boardregister(){
       if (xhr.readyState === xhr.DONE) {
           if (xhr.status === 200) { 
              alert("board regist succes")
+             window.open('Title.html','_self')
           }
           else {
           // 오류시 localStorage를 초기화하고 로그인화면으로

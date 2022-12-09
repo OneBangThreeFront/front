@@ -36,7 +36,6 @@
     background: white;
     border-radius:20px;
     border-collapse: collapse;
-    min-height: 100px;
     margin: auto;
     max-width: 800px;
     padding:5px;
@@ -160,7 +159,7 @@ input[id="menuicon"]:checked + label span:nth-child(2) {opacity:0;}
 input[id="menuicon"]:checked + label span:nth-child(3) {bottom:50%;transform:translateY(50%) rotate(-45deg);}
 div[class="sidebar"] {width:250px;height:100%;background:rgba(0, 0, 0, 0.1);position:fixed;top:0;left:-250px;z-index:1;transition:all .35s;}
 input[id="menuicon"]:checked + label + div {left:0;}
-.sitemap-ul {margin-top: 300px;}
+.sitemap-ul {margin-top: 250px;}
 .sitemap-ul > li {font-size:30px; width:100px; margin:100px auto; margin-top: 50px; list-style:none; font-family: 'Nunito', sans-serif; margin-left: -150px;}
 
 a {

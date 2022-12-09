@@ -83,7 +83,7 @@ function GetTask(boardid){
   xhr.onreadystatechange = function () {
       if (xhr.readyState === xhr.DONE) {
           if (xhr.status === 200) {
-             alert("GetBoard to Task");
+             window.open('Title.html','_self')
             }
             else {
 				      // 오류시 localStorage를 초기화하고 로그인화면으로
