@@ -157,8 +157,12 @@ function load_invitations(){
 
 // 초대받기화면만들기
 function makeinvitations(invitationId,projectName){
-  const element2 = document.getElementById('projects');
+  const element = document.getElementById('projects');
+  
   const newdiv = document.createElement('div');
+  newdiv.classList.add('inviteWrapper');
+
+  const newtextdiv = document.createElement('div');
   const newacceptdiv = document.createElement('div');
   const newdenydiv = document.createElement('div');
 
@@ -172,12 +176,13 @@ function makeinvitations(invitationId,projectName){
 
   }
 
-  newdiv.classList.add('invitationdiv');
+  newtextdiv.classList.add('invitationdiv');
   newacceptdiv.classList.add('acceptdiv');
   newdenydiv.classList.add('denydiv');
 
-  newdiv.append(document.createTextNode('Invited Project: '+projectName));
-  element2.append(newdiv,newacceptdiv,newdenydiv);
+  newtextdiv.append(document.createTextNode('Invited Project: '+projectName));
+  newdiv.append(newtextdiv,newacceptdiv,newdenydiv);
+  element.append(newdiv);
 }
 
 function acceptproject(invitationId){

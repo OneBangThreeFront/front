@@ -5,7 +5,7 @@ const example4 = document.querySelector('#cb4');
 const example5 = document.querySelector('#cb5');
 
 const low = document.querySelector('#low');
-const middle = document.querySelector('#middle');
+const medium = document.querySelector('#medium');
 const high = document.querySelector('#high');
 
 function example_1() {
@@ -51,13 +51,13 @@ function example_5() {
 
 function ex_1() {
   if(low.checked == true) {
-    middle.checked = false;
+    medium.checked = false;
     high.checked = false;
   }
 }
 
 function ex_2() {
-  if(middle.checked == true) {
+  if(medium.checked == true) {
     low.checked = false;
     high.checked = false;
   }
@@ -65,7 +65,7 @@ function ex_2() {
 
 function ex_3() {
   if(high.checked == true) {
-    middle.checked = false;
+    medium.checked = false;
     low.checked = false;
   }
 }
