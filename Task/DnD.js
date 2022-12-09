@@ -145,9 +145,9 @@ function ProjectDay(projectId){
 	}
 }
 
-// function ShowProjectDay(day){
-// 	document.querySelector('.D-day').append("예상 프로젝트 종료날짜"+day.year+"년"+day.month+"월"+day.day+"일");
-// }
+function ShowProjectDay(day){
+	document.querySelector('.D-day').append("Completion date:  "+day.year+"/"+day.month+"/"+day.day);
+}
 // poromise 함수를 못써서 dnd함수 새로짯습니다 ㅠㅠ
 
 // function dragStart(){
