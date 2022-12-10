@@ -164,7 +164,7 @@ input[id="menuicon"]:checked + label + div {left:0;}
 
 a {
 	text-decoration-line: none;
-	color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
 	font-weight: 400;
     font-size: 30px;
     padding-right: 200px;
