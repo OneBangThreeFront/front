@@ -209,16 +209,20 @@ input[type="radio"] + label {
 }
 
 .add button {
-    margin-top: 20px;
+    display: inline-block;
     font-size: 30px;
-    border-radius: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+    font-weight: bold;
+    width: 55px;
+    height: 55px;
     text-align: center;
+    background-color: white;
+    color: #70a1f1;
+    border: solid 4px #70a1f1;
+    border-radius: 55px;
     cursor: pointer;
-    border: 0px;
 }
 
 .add button:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #70a1f1;
+    color: white;
 }

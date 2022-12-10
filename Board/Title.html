@@ -10,26 +10,24 @@
     <script defer src="./Title.js"></script>
 </head>
 <body>
+  <input type="checkbox" id="menuicon">
+  <label for="menuicon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <div class="sidebar">
+    <ul class="sitemap-ul">
+        <li><a href="/Home.html">Home</a></li>
+        <li><a href="/Board/Title.html">Board</a></li>
+        <li><a href="/Task/DnD.html">Task</a></li>
+        <li><a href="/Issue/issue.html">Issue</a></li>
+    </ul>
+  </div>
+  <h1>Storyboard</h1>
+
   <!-- 페이지 바깥부분에 드래그하면 삭제됨 -->
   <div class="app" id="DeleteBoard" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <header>
-      <input type="checkbox" id="menuicon">
-      <label for="menuicon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <div class="sidebar">
-        <ul class="sitemap-ul">
-            <li><a href="/Home.html">Home</a></li>
-            <li><a href="/Board/Title.html">Board</a></li>
-            <li><a href="/Task/DnD.html">Task</a></li>
-            <li><a href="/Issue/issue.html">Issue</a></li>
-        </ul>
-      </div>
-      <h1>Storyboard</h1>
-      <hr>
-    </header>
     <div class="tab_content">
         <div class="conbox con1">
             <div class="tbl-header">
@@ -51,9 +49,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="add">
-                <button type="button" onclick="window.open('BoardRegister.html','_self')">+</button>
-            </div>
+        </div>
+        <div class="add">
+          <button type="button" onclick="window.open('BoardRegister.html','_self')">+</button>
         </div>
     </div>
   </div>
