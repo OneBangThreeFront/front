@@ -39,12 +39,19 @@ input {
     margin-left: 500px;
 }
 
+.description {
+    margin-left: 500px;
+}
+
 p {
     font-family: 'Nunito', sans-serif;
     font-size: 40px;
     margin-bottom: 20px;
 }
 
+.icon {
+    display: flex;
+}
 
 .clicked {
     color: #6593ee;
@@ -64,7 +71,7 @@ input[id="menuicon"]:checked + label span:nth-child(2) {opacity:0;}
 input[id="menuicon"]:checked + label span:nth-child(3) {bottom:50%;transform:translateY(50%) rotate(-45deg);}
 div[class="sidebar"] {width:250px;height:100%;background:rgba(0, 0, 0, 0.1);position:fixed;top:0;left:-250px;z-index:1;transition:all .35s;}
 input[id="menuicon"]:checked + label + div {left:0;}
-.sitemap-ul {margin-top: 300px;}
+.sitemap-ul {margin-top: 250px;}
 .sitemap-ul > li {font-size:30px; width:100px; margin:100px auto; margin-top: 50px; list-style:none; font-family: 'Nunito', sans-serif; margin-left: -150px;}
 
 a {
@@ -202,31 +209,18 @@ input[id="high"] + label {
     justify-content: center;
 }
 
-input[type=submit] {
-    font-size: 40px;
-    height: 80px;
-    width: 300px;
-    box-shadow:.8rem .5rem 1.4rem  #BEC5D0, -.3rem -.4rem .8rem #FBFBFB;
-    border-radius: 20px;
-    transition-duration: 0.3s;
-}
 
 input[type=checkbox]:active + label{
     box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, inset .3rem .4rem .8rem #BEC5D0;
 }
 
-input[type=submit]:active {
-    margin-left: 5px;
-    margin-top: 5px;
-    box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, inset .3rem .4rem .8rem #BEC5D0; 
-}
-    
-input[type=submit]:hover{
+
+.app input[type=checkbox]:hover + label{
     background-color: #6593ee;
     color: white;
 }
 
-input[type=checkbox]:hover + label{
-    background-color: #6593ee;
-    color: white;
+input[type=button]:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }

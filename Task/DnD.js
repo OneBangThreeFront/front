@@ -50,7 +50,7 @@ function makediv(description,id,score,taskName,taskStatus){
   // div마다 task id 설정
 	newdiv.id=id;
 	
-	const newdescription = document.createElement('div');
+	const newdescription = document.createElement('div');//Task창에는 설명이 굳이 필요없을거같아서 뺏습니다..열심히만든코드를 건드려서 죄송하무니다...
 	const newscore = document.createElement('div');
 	const newtaskName = document.createElement('div');
 
@@ -58,9 +58,9 @@ function makediv(description,id,score,taskName,taskStatus){
 	newscore.append(document.createTextNode(score));
 	newtaskName.append(document.createTextNode(taskName));
 
-	newdiv.append(newtaskName,newdescription,newscore);
+	newdiv.append(newtaskName,newscore);
 
-  element.append(newdiv);
+    element.append(newdiv);
 }
 
 function drag(ev) {
@@ -146,7 +146,7 @@ function ProjectDay(projectId){
 }
 
 function ShowProjectDay(day){
-	document.querySelector('.D-day').append("예상 프로젝트 종료날짜"+day.year+"년"+day.month+"월"+day.day+"일");
+	document.querySelector('.D-day').append("Completion date:  "+day.year+"/"+day.month+"/"+day.day);
 }
 // poromise 함수를 못써서 dnd함수 새로짯습니다 ㅠㅠ
 

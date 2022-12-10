@@ -39,7 +39,7 @@ input[id="menuicon"]:checked + label span:nth-child(2) {opacity:0;}
 input[id="menuicon"]:checked + label span:nth-child(3) {bottom:50%;transform:translateY(50%) rotate(-45deg);}
 div[class="sidebar"] {width:250px;height:100%;background:rgba(0, 0, 0, 0.1);position:fixed;top:0;left:-250px;z-index:1;transition:all .35s;}
 input[id="menuicon"]:checked + label + div {left:0;}
-.sitemap-ul {margin-top: 300px;}
+.sitemap-ul {margin-top: 250px;}
 .sitemap-ul > li {font-size:30px; width:100px; margin:100px auto; margin-top: 50px; list-style:none; font-family: 'Nunito', sans-serif; margin-left: -120px;}
 
 a {
@@ -86,10 +86,11 @@ h1 {
 .div-bottom{
   padding-left: 20vw;
   display: flex;
-  height:20vh;
+  height:300px;
   width:80vw;
   justify-content: center;
   text-align: center;
+  margin-bottom: 100px;
 }
 
 #text{ 
@@ -97,7 +98,12 @@ h1 {
   height: auto;
   width: 60vw;
   border-radius: 1vw;
-  margin: 1vh; 
+  margin: 1vh;
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+  border: 0px;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* add issue버튼 */
@@ -120,13 +126,76 @@ h1 {
 .issueidSpan{
   margin: 10px;
 }
-.usernameSpan{
-  background-color: aqua;
-  border: solid 2px black;
+ .usernamediv{
+  margin-left: 15px;
+  background-color:rgb(178, 172, 166);
+  margin-top: 10px;
   border-radius: 10px;
   padding: 5px;
+} 
+
+.issuecontentdiv{
+    position: relative;
+    display: inline-block;
+    max-width: calc(100% - 70px);
+    padding: 10px;
+    margin-top:0px;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    background-color: #ddd;
 }
-.issuecontentSpan{
-  background-color: coral;
-  margin: 10px;
+
+
+.issuecontentdiv::before {
+    position: absolute;
+    display: block;
+    content: "◀";
+    top: 0;
+    left: -15px;
+    font-size: 1.5rem;
+    color: #ddd;
+}
+
+.openissuechat{
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+  font-size: 20px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.openissuechat:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.closeissuechat{
+  border-radius: 5px;
+  border: 0px;
+  cursor: pointer;
+  font-size: 20px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.closeissuechat:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.openchat {
+  margin-left: 110px;
+  margin-top: 20px;
+  border-radius: 5px;
+  font-size: 15px;
+  border: 0px;
+  background-color: rgba(237, 210, 89, 0.3);
+}
+
+.deleteissuebutton:hover {
+  cursor: pointer;
+}
+
+.deleteissuebutton {
+  margin-left: 10px;
 }

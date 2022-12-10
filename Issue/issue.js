@@ -127,19 +127,20 @@ function makediv(issueid,issuecontent,username) {
   newDiv.id = issueid;
   newDiv.classList.add('newDiv');
   // new span 생성
-  const newusernameSpan = document.createElement('span');
-  const newissuecontentSpan = document.createElement('span');
+  const element2 = document.getElementById('newdiv');
+  const newusernamediv = document.createElement('span');
+  const newissuecontentdiv = document.createElement('div');
   // span에 내용넣기
-  newusernameSpan.appendChild(document.createTextNode(username));
-  newissuecontentSpan.appendChild(document.createTextNode(issuecontent));
+  newusernamediv.appendChild(document.createTextNode(username));
+  newissuecontentdiv.appendChild(document.createTextNode(issuecontent));
   // Span들에게 각각의 class 부여하기
-  newusernameSpan.classList.add('usernameSpan')
-  newissuecontentSpan.classList.add('issuecontentSpan')
+  newusernamediv.classList.add('usernamediv')
+  newissuecontentdiv.classList.add('issuecontentdiv')
 
   // 삭제하는 span추가
-  const newdeleteissueSpan = document.createElement('span');
-  newdeleteissueSpan.appendChild(document.createTextNode('X'));
-  newdeleteissueSpan.classList.add('deleteissueSpan');
+  const newdeleteissueSpan = document.createElement('button');
+  newdeleteissueSpan.appendChild(document.createTextNode('x'));
+  newdeleteissueSpan.classList.add('deleteissuebutton');
   newdeleteissueSpan.onclick = function(){
     const deleteid=issueid;
     issue_delete(deleteid);
@@ -147,11 +148,11 @@ function makediv(issueid,issuecontent,username) {
 
 
   // 답글보는 span 추가
-  const openIssueChatSpan = document.createElement('span');
-  openIssueChatSpan.innerText = "open chat"
-  openIssueChatSpan.classList.add('openissuechat');
+  const openIssueChatDiv = document.createElement('button');
+  openIssueChatDiv.innerText = "+"
+  openIssueChatDiv.classList.add('openissuechat');
 
-  openIssueChatSpan.addEventListener("click",(event)=>{
+  openIssueChatDiv.addEventListener("click",(event)=>{
     const IssueId=issueid;
     console.log(IssueId);
     GetIssueChat(IssueId);
@@ -159,13 +160,13 @@ function makediv(issueid,issuecontent,username) {
     transferOpenIssueChatSpan(IssueId);
   });
   // 답글 닫는 span 추가
-  const closeIssueChatSpan = document.createElement('span');
-  closeIssueChatSpan.innerText = "close chat";
-  closeIssueChatSpan.classList.add('closeissuechat');
+  const closeIssueChatDiv = document.createElement('button');
+  closeIssueChatDiv.innerText = "-";
+  closeIssueChatDiv.classList.add('closeissuechat');
   // 기본은 숨겨두는상태
-  closeIssueChatSpan.style.display = 'none';
+  closeIssueChatDiv.style.display = 'none';
 
-  closeIssueChatSpan.addEventListener("click",(event)=>{
+  closeIssueChatDiv.addEventListener("click",(event)=>{
     const IssueId=issueid;
     transferCloseIssueChatSpan(IssueId);
     removeDiv(IssueId);
@@ -175,10 +176,10 @@ function makediv(issueid,issuecontent,username) {
   issueEnterDiv.className = 'issueEnterDiv'
 
   // 위에서부터 들어감, 순서가 중요함
-  newDiv.appendChild(openIssueChatSpan,);
-  newDiv.appendChild(closeIssueChatSpan);
-  newDiv.appendChild(newusernameSpan);
-  newDiv.appendChild(newissuecontentSpan);
+  newDiv.appendChild(openIssueChatDiv);
+  newDiv.appendChild(closeIssueChatDiv);
+  newDiv.appendChild(newusernamediv);
+  newDiv.appendChild(newissuecontentdiv);
   newDiv.appendChild(newdeleteissueSpan);
   newDiv.appendChild(issueEnterDiv);
 

@@ -23,6 +23,7 @@
 				</label>
 				<div class="sidebar">
 					<ul class="sitemap-ul">
+						<li><a href="/Home.html">Home</a></li>
 						<li><a href="/Board/Title.html">Board</a></li>
 						<li><a href="/Task/DnD.html">Task</a></li>
 						<li><a href="/Issue/issue.html">Issue</a></li>
@@ -32,26 +33,26 @@
 			<h1>DevTask</h1>
 			<hr>
 		</header>
-		<div class="D-day">
-			<!-- 예상 종료날짜 들어가는 부분 -->
-		</div>
 		<div class="add">
-			<button type="button" onclick="location.href='/Invite.html'">팀원초대</button>
+			<button type="button" onclick="location.href='/Invite.html'">Invite</button>
+			<div class="D-day">
+				<!-- 예상 종료날짜 들어가는 부분 -->
+			</div>
 		</div>
 		<div class="lists">
 			<section class="ToDo">
-				<h2>해야할 일</h2>
+				<h2>To do</h2>
 					<div class="list" id="TODO" ondrop="drop(event)" ondragover="allowDrop(event)";>
 					</div>
 			</section>
 			
 			<section class="DoNow" id="IN">
-				<h2>하는 중</h2>
+				<h2>In progress</h2>
 					<div class="list" id="IN_PROGRESS" ondrop="drop(event)" ondragover="allowDrop(event)";></div>
 			</section>
 
 			<section class="End">
-				<h2>완료</h2>
+				<h2>Completed</h2>
 					<div class="list" id="RESOLVED" ondrop="drop(event)" ondragover="allowDrop(event)";></div>
 			</section>
 		</div>
