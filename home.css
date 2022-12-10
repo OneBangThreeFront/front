@@ -72,7 +72,7 @@ body{
 }
 
 .newdiv:hover{
-    border: solid 3px #ffe6b0;
+    border: solid 3px #4a89e8;
     border-radius: 5px;
     cursor:pointer;
 }
@@ -142,9 +142,9 @@ body{
 }
 
 .inviteWrapper:hover{
-    border: solid 3px #ffe6b0;
+    border: solid 3px #4a89e8;
     border-radius: 5px;
-    color:#ffe6b0;
+    color:#4a89e8;
 }
 
 .invitationdiv{
@@ -155,12 +155,12 @@ body{
 
 .acceptdiv{
     display: inline-block;
-    margin-right: 50px;
     opacity:0;
-    width:150px;
-    color:blue;
+    width: 253px;
+    background-color:blue;
+    color:white;
     border: solid 2px blue;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 .acceptdiv:hover{
@@ -170,12 +170,12 @@ body{
 
 .denydiv{
     display: inline-block;
-    margin-left: 50px;
     opacity:0;
-    width:150px;
-    color: red;
+    width:253px;
+    background-color: red;
+    color:white;
     border: solid 2px #ff0d00;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 .denydiv:hover{
