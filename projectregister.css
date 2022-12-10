@@ -104,6 +104,13 @@ body{
     cursor: pointer;
 }
 
+.btnAdd:hover{
+    color:#efefef;
+    background-color: #5a5f76;
+    border-radius: 50px;
+    border-style: none;
+}
+
 .box{ /*이메일 입력란*/
     position: relative;
     left: 6%;
@@ -121,8 +128,8 @@ body{
     position: relative;
     left: 7%;
     top: 3px;
-    width:35px;
-    height:35px;
+    width:30px;
+    height:30px;
     margin: 10px 10px 0px 0px;
     color:white;
     background-color: #d7d7d7;
@@ -131,6 +138,13 @@ body{
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.btnRemove:hover{
+    color:#efefef;
+    background-color: #a8a8a8;
+    border-radius: 50px;
+    border-style: none;
 }
 
 .button_wrapper{
@@ -152,6 +166,13 @@ body{
     cursor: pointer;
 }
 
+.cancel_btn:hover{
+    color:white;
+    background-color: #8a8a8a;
+    border-radius: 5px;
+    border-style: none;
+}
+
 .register_btn{
     width:100px;
     height:35px;
@@ -163,4 +184,11 @@ body{
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.register_btn:hover{
+    color:white;
+    background-color: #1e74f4;
+    border-radius: 5px;
+    border-style: none;
 }
