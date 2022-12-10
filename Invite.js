@@ -19,7 +19,7 @@ function project_invite(){
   xhr.onreadystatechange = function () {
     if (xhr.readyState === xhr.DONE) {
       if (xhr.status === 200) {
-        alert('invite sended')
+        alert('invitation sended!')
         //팝업창 닫고 새로고침
         opener.parent.location.reload();
         window.self.close();

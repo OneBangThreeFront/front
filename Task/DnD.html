@@ -12,35 +12,37 @@
 	<script defer src="./DnD.js"></script>
 </head>
 <body>
-	<div class="app">
-		<header>
-			<div class="category">
-				<input type="checkbox" id="menuicon">
-				<label for="menuicon">
-					<span></span>
-					<span></span>
-					<span></span>
-				</label>
-				<div class="sidebar">
-					<ul class="sitemap-ul">
-						<li><a href="/Home.html">Home</a></li>
-						<li><a href="/Board/Title.html">Board</a></li>
-						<li><a href="/Task/DnD.html">Task</a></li>
-						<li><a href="/Issue/issue.html">Issue</a></li>
-					</ul>
-				</div>
-			</div>
-			<h1>DevTask</h1>
-			<hr>
-		</header>
-		<div class="add">
-				<!-- "location.href='/Invite.html'" 에서 변경-->
-			<button type="button" onclick="window.open('/Invite.html', 'send invitation', 'width=700, height=500, location=no, status=no, scrollbars=yes')";>Invite</button>
-
-			<div class="D-day">
-				<!-- 예상 종료날짜 들어가는 부분 -->
-			</div>
+	<!-- 사이드바 -->
+	<div class="category">
+		<input type="checkbox" id="menuicon">
+		<label for="menuicon">
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+		<div class="sidebar">
+			<ul class="sitemap-ul">
+				<li><a href="/Home.html">Home</a></li>
+				<li><a href="/Board/Title.html">Board</a></li>
+				<li><a href="/Task/DnD.html">Task</a></li>
+				<li><a href="/Issue/issue.html">Issue</a></li>
+			</ul>
 		</div>
+	</div>
+
+	<!-- 로고&분리선 -->
+	<h1>DevTask</h1>
+
+	<!-- Invite 버튼 -->
+	<button type="button" class=invite_btn 
+	onclick="window.open('/Invite.html', 'send invitation', 'width=700, height=500, location=no, status=no, scrollbars=yes')";>
+	<img src="https://cdn-icons-png.flaticon.com/512/3503/3503834.png" width="70px" height="70px"></button>
+	
+	<!-- 예상 종료날짜 들어가는 부분 -->
+	<div class="D-day"></div><br>
+	
+	<!-- 메인 -->
+	<div class="app">
 		<div class="lists">
 			<section class="ToDo">
 				<h2>To do</h2>

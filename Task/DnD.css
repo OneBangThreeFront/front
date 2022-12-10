@@ -9,22 +9,20 @@ body {
 	font-family: 'Roboto', Helvetica, sans-serif;
 }
 
-h1 {
+h1 { /*로고*/
 	display: flex;
 	font-family: 'Nunito', sans-serif;
 	margin-top: 50px;
 	font-weight: 700;
 	justify-content: center;
-	font-size: 50px;
+	font-size: 70px;
 }
 
-hr {
-	margin-top: 40px;
-	margin-left: 300px;
-	margin-right: 300px;
+hr { /*분리선*/
+	margin:auto;
 }
 
-
+/*사이드바*/
 input[id="menuicon"] {display:none;}
 input[id="menuicon"] + label {display:block;margin:10px;width:60px;height:50px;position:relative;cursor:pointer;}
 input[id="menuicon"] + label span {display:block;position:absolute;width:100%;height:5px;border-radius:30px;background:#000;transition:all .35s;}
@@ -40,6 +38,31 @@ div[class="sidebar"] {width:250px;height:100%;background:rgba(0, 0, 0, 0.1);posi
 input[id="menuicon"]:checked + label + div {left:0;}
 .sitemap-ul {margin-top: 250px;}
 .sitemap-ul > li {font-size:30px; width:100px; margin:100px auto; margin-top: 50px; list-style:none; font-family: 'Nunito', sans-serif; margin-left: -120px;}
+
+
+.D-day{ /*예상 날짜*/
+    font-size: 30px;
+    color:rgb(145, 145, 145);
+	display: block;
+	text-align: center;
+}
+
+.invite_btn{ /*invite 버튼*/
+	position: relative;
+    left: 60%;
+	width:50px;
+    height:50px;
+	border: none;
+	background-color:rgb(255, 255, 255);
+	cursor: pointer;
+    margin: 10px 5px 0px 300px;
+	opacity:0.3;
+}
+
+
+.invite_btn:hover{
+	opacity:0.5;
+}
 
 a {
 	text-decoration-line: none;
