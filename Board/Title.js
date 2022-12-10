@@ -41,6 +41,9 @@ function maketrtd(description,boardid,boardname,priorityStatus,score){
     BoardClick(boardid);
   }
 
+  newtr.setAttribute('draggable','true');
+	newtr.setAttribute('ondrag','drag(event)');
+
 	const newdescription = document.createElement('td');
 	const newboardname = document.createElement('td');
   const newpriorityStatus = document.createElement('td')
@@ -83,7 +86,7 @@ function GetTask(boardid){
   xhr.onreadystatechange = function () {
       if (xhr.readyState === xhr.DONE) {
           if (xhr.status === 200) {
-             window.open('Title.html','_self')
+            window.open('./Title.html','_self');
             }
             else {
 				      // 오류시 localStorage를 초기화하고 로그인화면으로
@@ -95,20 +98,39 @@ function GetTask(boardid){
   xhr.send(data);
 }
 
-// 보드 삭제하는 함수 근데아직 버튼안만듬 회의이후에 추가해서해야할듯
+function drag(ev) {
+	dragdata = ev.target.id;
+}
+
+function drop(ev) {
+	if(ev.target.id === "DeleteBoard"){
+    const result = confirm('Delete the Board?')
+    if(result){
+      ev.preventDefault();
+      DeleteBoard(dragdata);
+    }
+	}
+}
+
+function allowDrop(ev) {
+	ev.preventDefault();
+}
+
 function DeleteBoard(boardid){
   var xhr = new XMLHttpRequest();
-  xhr.open("DLELTE", $address+'/board/'+boardid, true);
+  xhr.open("DELETE", $address+'/board/'+boardid, true);
 	xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function () {
       if (xhr.readyState === xhr.DONE) {
           if (xhr.status === 200) {
-             alert("GetBoard to Task");
+             alert("Board Deleted");
+             window.open('./Title.html','_self');
             }
             else {
 				      // 오류시 localStorage를 초기화하고 로그인화면으로
-							//localStorage.clear();
-							//location.href='./Login.html';
+							localStorage.clear();
+							location.href='./Login.html';
             }
         }
     }

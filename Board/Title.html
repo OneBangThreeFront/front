@@ -10,7 +10,8 @@
     <script defer src="./Title.js"></script>
 </head>
 <body>
-  <div class="app">
+  <!-- 페이지 바깥부분에 드래그하면 삭제됨 -->
+  <div class="app" id="DeleteBoard" ondrop="drop(event)" ondragover="allowDrop(event)">
     <header>
       <input type="checkbox" id="menuicon">
       <label for="menuicon">
