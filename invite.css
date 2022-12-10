@@ -1,0 +1,61 @@
+body{
+    margin:0;
+    color:#6a6f8c;
+    background:white;
+    font:600 16px/18px 'Open Sans',sans-serif;
+}
+
+.invitation_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.invitation_logo{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mail_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mail_id{ /*이메일 입력란*/
+    width:550px;
+    height:45px;
+    margin: 10px 0 5px 0;
+    color:black;
+    background-color: #e8f0fe;
+    border-radius: 5px;
+    border-style: none;
+    font-size: 15px;
+}
+
+.button_group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.send_btn{ /*로그인 버튼*/
+    width:110px;
+    height:45px;
+    margin: 10px 5px 5px 0;
+    color:#0D6EFD;
+    background-color: #ffffff;
+    border: solid 2px #0D6EFD;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+} 
+
+.send_btn:hover{
+    color:white;
+    background-color: #0D6EFD;
+    border-radius: 5px;
+}

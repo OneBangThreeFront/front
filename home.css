@@ -39,25 +39,27 @@ body{
     width:175px;
     height:45px;
     margin: 10px 5px 5px 0;
-    color:white;
-    background-color: #4a89e8;
+    color:#4a89e8;
+    background-color: white;
+    border: solid 3px #4a89e8;
     border-radius: 5px;
-    border-style: none;
     font-size:18px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.prj_wrapper{
-    display: flex;
-    align-items:center;
-    justify-content: center;
+.prj_btn:hover{
+    color:white;
+    background-color: #4a89e8;
+    border-radius: 5px;
+    border-style: none;
 }
 
 #projects{ 
     /* 프로젝트들 들어가는 칸 */
     text-align: center;
-    width:700px;
+    width:750px;
+    margin:auto;
 }
 /* project new div 감싸주는칸 */
 .newdiv{
@@ -67,10 +69,19 @@ body{
     margin-bottom:50px;
     margin-left: 100px;
     margin-right: 100px;
-    
 }
+
+.newdiv:hover{
+    border: solid 3px #4a89e8;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
 /* project new div 에서 프로젝트 타이틀 부분 div*/
 .title{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     display: flex;
     align-items:center;
     justify-content: center;
@@ -80,49 +91,94 @@ body{
     background-color: #ffffff;
     color:#86899f;
     height: 40px;
+    cursor:pointer;
 }
 /* project new div 에서 프로젝트 설명하는 부분 div*/
 .describe{
     margin-bottom: 20px;
     margin-top: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
     background-color: #ffffff;
-    color:#b4b6bf
+    color:#b4b6bf;
+    cursor:pointer;
 }
 
 /* project 삭제 div */
 .deletediv{
     position: relative;
     left: 82%;
-    border: solid 3px #ff0d00;
+    border: solid 2px #ff0d00;
     border-radius: 5px;
     margin:10px;
     background-color: #ffffff;
     color: red;
+    font-weight: bold;   
     width: 70px;
     height: 20px;
     display: flex;
     align-items:center;
     justify-content: center;
+    cursor:pointer;
 }
+
+.deletediv:hover {
+    color:white;
+    background-color: #ff0000;
+    border-radius: 5px;
+    border-style: none;
+  }
 
 /* 초대관련 div들 */
 .inviteWrapper{
-    display: flex;
-    align-items:center;
-    justify-content: center;
+    height:50px;
+    background-color: #ffffff;
+    border: solid 3px #d2d2d2;
+    border-radius: 5px;
+    margin-bottom:10px;
+    margin-left: 115px;
+    margin-right: 115px;
+    color:#d2d2d2;
+}
+
+.inviteWrapper:hover{
+    border: solid 3px #4a89e8;
+    border-radius: 5px;
+    color:#4a89e8;
 }
 
 .invitationdiv{
-
+    display: block;
+    font-size: 25px;
+    margin-bottom:10px;
 }
 
 .acceptdiv{
+    display: inline-block;
+    opacity:0;
+    width: 253px;
+    background-color:blue;
+    color:white;
+    border: solid 2px blue;
+    border-radius: 0px;
+}
 
+.acceptdiv:hover{
+    cursor: pointer;
+    opacity:100;
 }
 
 .denydiv{
-    
+    display: inline-block;
+    opacity:0;
+    width:253px;
+    background-color: red;
+    color:white;
+    border: solid 2px #ff0d00;
+    border-radius: 0px;
 }
 
+.denydiv:hover{
+    cursor: pointer;
+    opacity:100;
+}
