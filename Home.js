@@ -111,7 +111,7 @@ function projectdelete(projectid){
     if (xhr.readyState === xhr.DONE) {
       if (xhr.status === 200) {
         //성공시 페이지 refresh
-        window.location.reload();;
+        window.location.reload();
         }
         else {
         // 오류시 localStorage를 초기화하고 로그인화면으로
@@ -210,5 +210,23 @@ function acceptproject(invitationId){
 }
 
 function denyproject(invitationId){
-
+  var xhr = new XMLHttpRequest();
+  console.log(invitationId);
+  xhr.open("DELETE", $address+'/invitation/'+invitationId, true); 
+  xhr.setRequestHeader('Authorization',"Bearer " + accessToken);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === xhr.DONE) {
+      if (xhr.status === 200) {
+        //alert("invitation accept!");
+        //페이지 refresh
+        window.location.reload();
+        }
+        else {
+        // 오류시 localStorage를 초기화하고 로그인화면으로
+        localStorage.clear();
+        location.href='./Login.html';
+      }
+    }
+  }
+  xhr.send();
 }
