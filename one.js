@@ -26,7 +26,7 @@ function login(form)
                
             }
             else {
-                alert("아이디 또는 비밀번호를 다시 확인하시오.")
+                alert("Please recheck your email adderss or password.")
             }
         }
     }
@@ -52,11 +52,11 @@ function signup(form)
     xhr.onreadystatechange = function () {
         if (xhr.readyState === xhr.DONE) {
             if (xhr.status === 200) { //연결 성공시
-                alert("가입 성공");
+                alert("success");
                 location.href='Login.html';                                                             
             }
             else {
-                alert("이미 존재하는 이메일 또는 6자리 미만 비밀번호입니다.")
+                alert("Existed email or under 6 letters password.")
             }
         }
     }

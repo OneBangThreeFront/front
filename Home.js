@@ -59,17 +59,19 @@ function makediv(projectid,title,description){
   // div들 만들기
   const newdiv = document.createElement('div');
   const newtextwrapdiv = document.createElement('div');
-  const newdeletediv = document.createElement('div');
 
-  // newdiv에 스타일 설정
-  newdiv.classList.add('newdiv');
-  // newdiv에 객체 id 설정
-  newdiv.id = projectid;
+  const newdeletediv = document.createElement("button");
   //삭제하는 div에 스타일추가
   newdeletediv.classList.add('deletediv');
   //삭제하는 div에 내용추가
   const deletediv_text = document.createTextNode("Delete");
   newdeletediv.append(deletediv_text);
+
+
+  // newdiv에 스타일 설정
+  newdiv.classList.add('newdiv');
+  // newdiv에 객체 id 설정
+  newdiv.id = projectid;
 
   // 프로젝트 누를시 이동하는함수
   newtextwrapdiv.onclick = function(){ 
@@ -109,7 +111,7 @@ function projectdelete(projectid){
     if (xhr.readyState === xhr.DONE) {
       if (xhr.status === 200) {
         //성공시 페이지 refresh
-        location.href='./Home.html';
+        window.location.reload();;
         }
         else {
         // 오류시 localStorage를 초기화하고 로그인화면으로
@@ -120,9 +122,6 @@ function projectdelete(projectid){
   }
   xhr.send();
 }
-
-
-
 
 // 아래부터는 초대관련
 function load_invitations(){
@@ -160,27 +159,30 @@ function makeinvitations(invitationId,projectName){
   const element = document.getElementById('projects');
   
   const newdiv = document.createElement('div');
-  newdiv.classList.add('inviteWrapper');
+  newdiv.classList.add('inviteWrapper'); //<div class=invitewrapper>
 
   const newtextdiv = document.createElement('div');
   const newacceptdiv = document.createElement('div');
   const newdenydiv = document.createElement('div');
 
-  newdenydiv.append(document.createTextNode('deny'));
-  newacceptdiv.append(document.createTextNode('accept'));
+  newdenydiv.append(document.createTextNode('Deny'));
+  newacceptdiv.append(document.createTextNode('Accept'));
 
   newacceptdiv.onclick = function (){
     acceptproject(invitationId);
   }
-  newdenydiv.onclick = function(){
 
+  newdenydiv.onclick = function (){
+    newdiv.remove();
+    console.log("a");
+    denyproject(invitationId);
   }
 
   newtextdiv.classList.add('invitationdiv');
   newacceptdiv.classList.add('acceptdiv');
   newdenydiv.classList.add('denydiv');
 
-  newtextdiv.append(document.createTextNode('Invited Project: '+projectName));
+  newtextdiv.append(document.createTextNode(projectName));
   newdiv.append(newtextdiv,newacceptdiv,newdenydiv);
   element.append(newdiv);
 }
@@ -193,9 +195,9 @@ function acceptproject(invitationId){
   xhr.onreadystatechange = function () {
     if (xhr.readyState === xhr.DONE) {
       if (xhr.status === 200) {
-        alert("invitation accpet!");
+        alert("invitation accept!");
         //페이지 refresh
-        location.href='./Home.html';
+        window.location.reload();
         }
         else {
         // 오류시 localStorage를 초기화하고 로그인화면으로
@@ -205,4 +207,8 @@ function acceptproject(invitationId){
     }
   }
   xhr.send();
+}
+
+function denyproject(invitationId){
+
 }
