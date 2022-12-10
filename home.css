@@ -71,12 +71,6 @@ body{
     margin-right: 100px;
 }
 
-.newdiv:hover{
-    border: solid 3px #4a89e8;
-    border-radius: 5px;
-    cursor:pointer;
-}
-
 /* project new div 에서 프로젝트 타이틀 부분 div*/
 .title{
     margin-top: 10px;
@@ -93,6 +87,12 @@ body{
     height: 40px;
     cursor:pointer;
 }
+
+.title:hover{
+    color:white;
+    background-color:#70a1f1;
+}
+
 /* project new div 에서 프로젝트 설명하는 부분 div*/
 .describe{
     margin-bottom: 20px;
@@ -132,19 +132,20 @@ body{
 /* 초대관련 div들 */
 .inviteWrapper{
     height:50px;
-    background-color: #ffffff;
-    border: solid 3px #d2d2d2;
-    border-radius: 5px;
+    background-color: #f1f1f1;
+    border: solid 3px #f1f1f1;
+    border-radius: 0px;
     margin-bottom:10px;
     margin-left: 115px;
     margin-right: 115px;
-    color:#d2d2d2;
+    color:#ffffff;
 }
 
 .inviteWrapper:hover{
-    border: solid 3px #4a89e8;
-    border-radius: 5px;
-    color:#4a89e8;
+    background-color: #dbdbdb;
+    border: solid 3px #dbdbdb;
+    border-radius: 0px;
+
 }
 
 .invitationdiv{
