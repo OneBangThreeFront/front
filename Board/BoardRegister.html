@@ -26,41 +26,50 @@
         </ul>
     </div>
     <h1>Storyboard Register</h1>
-    <hr>
-    <form>
+
+
     <div class="app">
-        <div class="task">
-            <p>Task</p>
-            <input type="text" size="100" placeholder="  Please enter your work to do" id="taskname">
-        </div>
-        <div class="description">
-            <p>Description</p>
-            <input type="text" size="100" placeholder="  Please enter Description about task" id="descriptionname">
-        </div>
-        <div class="score">
-            <p>Score</p>
-            <div id="cb_group">
-                <input type="checkbox" id="cb1" onclick="example_1();"><label for="cb1">1</label>
-                <input type="checkbox" id="cb2" onclick="example_2();"><label for="cb2">2</label>
-                <input type="checkbox" id="cb3" onclick="example_3();"><label for="cb3">3</label>
-                <input type="checkbox" id="cb4" onclick="example_4();"><label for="cb4">4</label>
-                <input type="checkbox" id="cb5" onclick="example_5();"><label for="cb5">5</label>
+        <form>
+            <hr>
+            <div class="task">
+                <p>Task</p>
+                <input type="text" size="100" placeholder="  Please enter your work to do" id="taskname">
             </div>
-        </div>
-        <div class="importance">
-            <p>Importance</p>
-            <div id="cb_group2">
-                <input type="checkbox" id="low" onclick="ex_1();"><label for="low">Low</label>
-                <input type="checkbox" id="medium" onclick="ex_2();"><label for="medium">Medium</label>
-                <input type="checkbox" id="high" onclick="ex_3();"><label for="high">High</label>
+
+            <div class="description">
+                <p>Description</p>
+                <input type="text" size="100" placeholder="  Please enter Description about task" id="descriptionname">
             </div>
-        </div>
-    <hr style="margin-right: -350px; margin-top: 60px; margin-bottom: 50px;">
-    <div class="register">
-            <!-- submit을 button으로 임시로 바꿔둠 -->
-        <input type="button" value="Register" onclick="boardregister();">
-    </div>
-    </form>
-    <script src="BoardRegister.js"></script>
+
+            <div class="score">
+                <p>Score</p>
+                <div id="cb_group">
+                    <input type="checkbox" id="cb1" onclick="example_1();"><label for="cb1">1</label>
+                    <input type="checkbox" id="cb2" onclick="example_2();"><label for="cb2">2</label>
+                    <input type="checkbox" id="cb3" onclick="example_3();"><label for="cb3">3</label>
+                    <input type="checkbox" id="cb4" onclick="example_4();"><label for="cb4">4</label>
+                    <input type="checkbox" id="cb5" onclick="example_5();"><label for="cb5">5</label>
+                </div>
+            </div>
+
+            <div class="importance">
+                <p>Importance</p>
+                <div id="cb_group2">
+                    <input type="checkbox" id="low" onclick="ex_1();"><label for="low">Low</label>
+                    <input type="checkbox" id="medium" onclick="ex_2();"><label for="medium">Medium</label>
+                    <input type="checkbox" id="high" onclick="ex_3();"><label for="high">High</label>
+                </div>
+            </div>
+            <br><br>
+            <hr>
+            <div class="btn_wrapper">
+                <div class="register">
+                    <!-- submit을 button으로 임시로 바꿔둠 -->
+                    <input type="button" value="Register" onclick="boardregister();">
+                </div>
+            </div>
+        </form>
+    </div>    
+<script src="BoardRegister.js"></script>
 </body>
 </html>

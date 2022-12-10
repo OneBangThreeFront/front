@@ -8,14 +8,15 @@ h1 {
 }
 
 hr {
-    margin-left: 300px;
-    margin-right: 300px;
+    display:block;
+    margin:auto;
 }
 
 .app {
-    position: relative;
-    display: inline-block;
+    display: flex;
     justify-content: center;
+
+    height: 100vh;
 }
 
 input {
@@ -28,19 +29,19 @@ input {
     border: 0px;
 }
 .task {
-    margin-left: 500px;
+
 }
 
 .score {
-    margin-left: 500px;
+
 }
 
 .importance {
-    margin-left: 500px;
+
 }
 
 .description {
-    margin-left: 500px;
+
 }
 
 p {
@@ -76,7 +77,7 @@ input[id="menuicon"]:checked + label + div {left:0;}
 
 a {
 	text-decoration-line: none;
-	color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
 	font-weight: 400;
     font-size: 30px;
     padding-right: 200px;
@@ -203,12 +204,24 @@ input[id="high"] + label {
     background-color: rgb(218, 13, 13);
 }
 
-.register {
-    margin-left: 450px;
+.btn_wrapper{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
+.register {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    width:150px;
+    height:50px;
+    color:#3485ff;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 input[type=checkbox]:active + label{
     box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, inset .3rem .4rem .8rem #BEC5D0;
@@ -221,6 +234,9 @@ input[type=checkbox]:active + label{
 }
 
 input[type=button]:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    color:white;
+    background-color: #1e74f4;
+    border-radius: 5px;
+    border-style: none;
     cursor: pointer;
 }
