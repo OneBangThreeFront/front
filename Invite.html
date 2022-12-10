@@ -2,23 +2,23 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>팀원 관리</title>
+    <title>Send Invitation</title>
     <link href="invite.css" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script defer src="./Invite.js"></script>
 </head>
 <body>
-    <div class="join_wrapper">
-        <form class="join_form">
-            <div class="join_logo">DevTask 회원가입</div> <br><br><br>
+    <div class="invitation_wrapper">
+        <form class="invitation_form">
+            <div class="invitation_logo">Send an invitation to your new team member!</div> <br><br><br><br>
 
-            <label for="mail">초대보낼 이메일</label> 
-            <br>
-            <input type="email" type="email" class="mail_id" id="mail" placeholder="(이메일을 입력하세요.)">
-            <br>
-
-           <div class="join_button_group">
-             <input type="button" class="join_btn" value="초대보내기" onclick="project_invite();"> 
+            <div class="mail_wrapper">
+              <label for="mail"></label> 
+              <input type="email" type="email" class="mail_id" id="mail" placeholder=" (Write a new member's email address here)">
+            </div>
+            
+           <div class="button_group">
+             <input type="button" class="send_btn" value="Send!" onclick="project_invite();"> 
            </div>        
          </form>
     </div>

@@ -1,7 +1,7 @@
 const $address = 'http://ec2-3-38-185-131.ap-northeast-2.compute.amazonaws.com'
 
 //윈도우 실행시
-window.onload = async function(){ //async로 선언
+window.onload = function(){
 // storage에 저장된 accessToken과 email 받아오기  
   accessToken = localStorage.getItem('accessToken');
   email = localStorage.getItem('email');
@@ -9,9 +9,11 @@ window.onload = async function(){ //async로 선언
   // 화면 정보 받아들이고 만들기
   // 순서는 1 프로젝트 초대받은것 2 프로젝트들 데이터
   // 프로젝트 초대받은것 보여주기
-  load_invitations();
   // 프로젝트들
-  await load_project_data(); //초대화면 아래에 프로젝트 데이터가 나오도록
+  load_invitations();
+  setTimeout(function() {
+    load_project_data(); //초대화면 아래에 프로젝트 데이터가 나오도록
+},50);
 }
 // 프로젝트 데이터 가져오기
 function load_project_data(){

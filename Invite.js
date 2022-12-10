@@ -20,8 +20,9 @@ function project_invite(){
     if (xhr.readyState === xhr.DONE) {
       if (xhr.status === 200) {
         alert('invite sended')
-        //홈화면으로
-        location.href='./Home.html';
+        //팝업창 닫고 새로고침
+        opener.parent.location.reload();
+        window.self.close();
         }
         else {
         // 오류시 localStorage를 초기화하고 로그인화면으로
