@@ -99,7 +99,7 @@ function boardregister(){
   xhr.onreadystatechange = function () {
       if (xhr.readyState === xhr.DONE) {
           if (xhr.status === 200) { 
-             alert("board regist succes")
+             alert("Regist on board is success")
              window.open('Title.html','_self')
           }
           else {

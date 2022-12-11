@@ -66,7 +66,7 @@ function maketrtd(description,boardid,boardname,priorityStatus,score){
 
 
 function BoardClick(boardid){
-  const result = confirm('My Task에 추가하시겠습니까?')
+  const result = confirm('Want to add on "My Task?"');
 
   if(result){
     GetTask(boardid);
